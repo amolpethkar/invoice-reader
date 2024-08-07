@@ -14,6 +14,24 @@ from langchain.chains.question_answering import load_qa_chain
 from dotenv import load_dotenv
 from PIL import Image
 
+# Custom CSS to adjust sidebar width
+st.markdown(
+    """
+    <style>
+    .css-1d391kg {
+        width: 25% !important;
+        min-width: 25% !important;
+    }
+    .css-18e3th9 {
+        padding-top: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Load ENV and KEYS
 load_dotenv()
