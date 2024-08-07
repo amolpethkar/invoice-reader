@@ -68,11 +68,13 @@ def input_image_setup(uploaded_file):
            
         else:
             st.write("No image uploaded.")
-if submit:
-    image_data = input_image_setup(uploaded_file)
-    response=get_gemini_response(input_prompt,image_data,input)
-    st.subheader("The Response is")
-    st.write(response)
+
+    submit=st.button("Ask Me")
+    if submit:
+        image_data = input_image_setup(uploaded_file)
+        response=get_gemini_response(input_prompt,image_data,input)
+        st.subheader("The Response is")
+        st.write(response)
 
 
 
