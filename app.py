@@ -44,29 +44,27 @@ def input_image_setup(uploaded_file):
         raise FileNotFoundError("No file uploaded")
 ##initialize our streamlit app
 
-st.set_page_config(page_title="MultiLanguage Invoice Extractor")
-st.header("MultiLanguage Invoice Extractor")
-input=st.text_input("Input Prompt: ",key="input")
-uploaded_file = st.file_uploader("Choose an image of the Invoice", type=["jpg", "jpeg", "png"])
-image=""   
+def main():
+    st.sidebar.title("Input Sidebar")
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image.", use_column_width=True)
+    # Text box
+    text_input = st.sidebar.text_input("Enter some text:")
 
-submit=st.button("Tell me about the invoice")
+    # File uploader for images
+    uploaded_file = st.sidebar.file_uploader("Upload an image:", type=["jpg", "jpeg", "png"])
 
+    # Submit button
+    if st.sidebar.button("Ask me"):
+        st.write("You entered:", text_input)
 
-input_prompt = """
-You are an expert in understanding the invoices. We will upload a image as invoice and you
-will have to answer any question based on the uploaded invoice image.
-"""
+        if uploaded_file is not None:
+            image = Image.open(uploaded_file)
+            st.image(image, caption='Uploaded Image.', use_column_width=True)
+        else:
+            st.write("No image uploaded.")
 
-if submit:    
-    image_data = input_image_setup(uploaded_file)
-    response=get_gemini_response(input_prompt,image_data,input)
-    st.subheader("The Response is")
-    st.write(response)
+if __name__ == "__main__":
+    main()
 
 
 
