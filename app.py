@@ -52,15 +52,10 @@ input=st.sidebar.text_input("Input Prompt: ",key="input")
 uploaded_file = st.sidebar.file_uploader("Choose an image of the Invoice", type=["jpg", "jpeg", "png"])
 image=""
 response = ""
-if uploaded_file is not None:
-    if response :
-        st.subheader("The Response is")
-        st.write(response)
-    
+if uploaded_file is not None:   
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
-
-
+    st.write("Image uploaded.")
 
 
 submit=st.sidebar.button("Ask Me")
@@ -75,8 +70,8 @@ if submit and image:
             
             image_data = input_image_setup(uploaded_file)
             response=get_gemini_response(input_prompt,image_data,input)
-            #st.subheader("The Response is")
-            #st.write(response)
+            st.subheader("The Response is")
+            st.write(response)
 else:
              st.write("No image uploaded.")
 
