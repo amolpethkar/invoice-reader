@@ -55,7 +55,7 @@ response = ""
 if uploaded_file is not None:   
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
-    st.write("Image uploaded.")
+   
 
 
 submit=st.sidebar.button("Ask Me")
@@ -72,8 +72,10 @@ if submit and image:
             response=get_gemini_response(input_prompt,image_data,input)
             st.subheader("The Response is")
             st.write(response)
-else:
-             st.write("No image uploaded.")
+            if image :
+                 st.write("Image uploaded.")
+            else:
+                 st.write("No image uploaded.")
 
    
 
