@@ -53,6 +53,11 @@ def main():
     # File uploader for images
     uploaded_file = st.sidebar.file_uploader("Upload an image:", type=["jpg", "jpeg", "png"])
 
+    input_prompt = """
+    You are an expert in understanding the invoices. We will upload a image as invoice and you
+    will have to answer any question based on the uploaded invoice image.
+    """
+    
     # Submit button
     if st.sidebar.button("Ask me"):
         st.write("You entered:", text_input)
