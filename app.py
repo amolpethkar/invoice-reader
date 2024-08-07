@@ -68,7 +68,7 @@ if st.sidebar.button("Ask me") and uploaded_file is not None:
             response=get_gemini_response(input_prompt,image_data,input)
             st.subheader("The Response is")
             st.write(response)
-        else:
+else:
              st.write("No image uploaded.")
 
    
