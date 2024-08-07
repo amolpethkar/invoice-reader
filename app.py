@@ -53,7 +53,7 @@ uploaded_file = st.sidebar.file_uploader("Choose an image of the Invoice", type=
 image=""   
 
 
-submit=st.sidebar.button("Ask Me")
+#submit=st.sidebar.button("Ask Me")
 
 
 input_prompt = """
