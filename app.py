@@ -50,10 +50,18 @@ st.set_page_config(page_title="MultiLanguage Invoice Extractor")
 st.header("MultiLanguage Invoice Extractor")
 input=st.sidebar.text_input("Input Prompt: ",key="input")
 uploaded_file = st.sidebar.file_uploader("Choose an image of the Invoice", type=["jpg", "jpeg", "png"])
-image=""   
+image=""
+response = ""
 if uploaded_file is not None:
+    if response :
+        st.subheader("The Response is")
+        st.write(response)
+    
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image.", use_column_width=True)
+
+
+
 
 submit=st.sidebar.button("Ask Me")
 
@@ -67,8 +75,8 @@ if submit and image:
             
             image_data = input_image_setup(uploaded_file)
             response=get_gemini_response(input_prompt,image_data,input)
-            st.subheader("The Response is")
-            st.write(response)
+            #st.subheader("The Response is")
+            #st.write(response)
 else:
              st.write("No image uploaded.")
 
