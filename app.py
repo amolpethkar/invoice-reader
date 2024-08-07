@@ -53,7 +53,7 @@ uploaded_file = st.sidebar.file_uploader("Choose an image of the Invoice", type=
 image=""   
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file, width=500)
+    image = Image.open(uploaded_file)
     st.sidebar.image(image, caption="Uploaded Image.", use_column_width=True)
 
 submit=st.sidebar.button("Ask Me")
