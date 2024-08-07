@@ -51,9 +51,6 @@ st.header("MultiLanguage Invoice Extractor")
 input=st.sidebar.text_input("Input Prompt: ",key="input")
 uploaded_file = st.sidebar.file_uploader("Choose an image of the Invoice", type=["jpg", "jpeg", "png"])
 image=""   
-if uploaded_file is not None:
-            image = Image.open(uploaded_file)
-            st.sidebar.image(image, caption="Uploaded Image.", use_column_width=True)
 
 
 submit=st.sidebar.button("Ask Me")
@@ -64,8 +61,7 @@ You are an expert in understanding the invoices. We will upload a image as invoi
 will have to answer any question based on the uploaded invoice image.
 """
 
-if submit:
-        if uploaded_file is not None:
+if st.sidebar.button("Ask me") and uploaded_file is not None:      
             image = Image.open(uploaded_file)
             st.sidebar.image(image, caption="Uploaded Image.", use_column_width=True)
             image_data = input_image_setup(uploaded_file)
