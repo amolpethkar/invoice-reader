@@ -44,7 +44,7 @@ def input_image_setup(uploaded_file):
         raise FileNotFoundError("No file uploaded")
 ##initialize our streamlit app
 
-def main():
+
     st.sidebar.title("Input Sidebar")
 
     # Text box
@@ -59,22 +59,21 @@ def main():
     """
     
     # Submit button
-    if st.sidebar.button("Ask me"):
+    if st.sidebar:
         st.write("You entered:", text_input)
 
         if uploaded_file is not None:
             image = Image.open(uploaded_file)
             st.image(image, caption='Uploaded Image.', use_column_width=True)
-
-            image_data = input_image_setup(uploaded_file)
-            response=get_gemini_response(input_prompt,image_data,input)
-            st.subheader("The Response is")
-            st.write(response)
+           
         else:
             st.write("No image uploaded.")
+if submit:
+    image_data = input_image_setup(uploaded_file)
+    response=get_gemini_response(input_prompt,image_data,input)
+    st.subheader("The Response is")
+    st.write(response)
 
-if __name__ == "__main__":
-    main()
 
 
 
