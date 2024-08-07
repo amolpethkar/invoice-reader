@@ -44,25 +44,18 @@ def input_image_setup(uploaded_file):
     else:
         raise FileNotFoundError("No file uploaded")
 ##initialize our streamlit app
-
-# Custom CSS to adjust sidebar width
+# Setting width to sidebar
 st.markdown(
     """
     <style>
-    .css-1d391kg {
-        width: 25% !important;
-        min-width: 25% !important;
-    }
-    .css-18e3th9 {
-        padding-top: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 1rem;
-        padding-left: 1rem;
-    }
+        [data-testid=stSidebar] {
+            width: 400px;
+        }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
+
 
 st.set_page_config(page_title="MultiLanguage Invoice Extractor")
 st.header("MultiLanguage Invoice Extractor")
