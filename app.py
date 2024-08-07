@@ -64,7 +64,7 @@ You are an expert in understanding the invoices. We will upload a image as invoi
 will have to answer any question based on the uploaded invoice image.
 """
 
-if submit && uploaded_file is not None:   
+if submit & uploaded_file is not None:   
         image_data = input_image_setup(uploaded_file)
         response=get_gemini_response(input_prompt,image_data,input)
         st.subheader("The Response is")
