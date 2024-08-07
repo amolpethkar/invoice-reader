@@ -1,4 +1,4 @@
-!pip install streamlit google-generativeai python-dotenv langchain PyPDF2  langchain_google_genai langchain-community chromadb faiss-cpu
+#!pip install streamlit google-generativeai python-dotenv langchain PyPDF2  langchain_google_genai langchain-community chromadb faiss-cpu
 
 # Imports
 import streamlit as st
