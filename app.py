@@ -1,4 +1,4 @@
-#!pip install streamlit google-generativeai python-dotenv langchain PyPDF2 chromadb faiss-cpu langchain_google_genai langchain-community
+!pip install streamlit google-generativeai python-dotenv langchain PyPDF2  langchain_google_genai langchain-community chromadb faiss-cpu
 
 # Imports
 import streamlit as st
@@ -7,10 +7,10 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
-from langchain.vectorstores import FAISS
+#from langchain.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains.question_answering import load_qa_chain
-from langchain.prompts import PromptTemplate
+#from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
 from PIL import Image
 
