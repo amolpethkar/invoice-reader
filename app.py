@@ -56,7 +56,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file, width=500)
     st.sidebar.image(image, caption="Uploaded Image.", use_column_width=True)
 
-submit=st.sidebar.button("Tell me about the invoice")
+submit=st.sidebar.button("Ask Me")
 
 
 input_prompt = """
