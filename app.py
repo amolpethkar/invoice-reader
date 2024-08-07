@@ -52,8 +52,10 @@ input=st.sidebar.text_input("Input Prompt: ",key="input")
 uploaded_file = st.sidebar.file_uploader("Choose an image of the Invoice", type=["jpg", "jpeg", "png"])
 image=""   
 
+image = Image.open(uploaded_file)
+st.sidebar.image(image, caption="Uploaded Image.", use_column_width=True)
 
-#submit=st.sidebar.button("Ask Me")
+submit=st.sidebar.button("Ask Me")
 
 
 input_prompt = """
@@ -61,9 +63,8 @@ You are an expert in understanding the invoices. We will upload a image as invoi
 will have to answer any question based on the uploaded invoice image.
 """
 
-if st.sidebar.button("Ask me") and uploaded_file is not None:      
-            image = Image.open(uploaded_file)
-            st.sidebar.image(image, caption="Uploaded Image.", use_column_width=True)
+if submit and image:    
+            
             image_data = input_image_setup(uploaded_file)
             response=get_gemini_response(input_prompt,image_data,input)
             st.subheader("The Response is")
