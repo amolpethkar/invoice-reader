@@ -72,10 +72,9 @@ if submit and image:
             response=get_gemini_response(input_prompt,image_data,input)
             st.subheader("The Response is")
             st.write(response)
-            if image :
-                 st.write("Image uploaded.")
-            else:
-                 st.write("No image uploaded.")
+            
+else:
+            st.write("No image uploaded.")
 
    
 
