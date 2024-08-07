@@ -44,17 +44,6 @@ def input_image_setup(uploaded_file):
     else:
         raise FileNotFoundError("No file uploaded")
 ##initialize our streamlit app
-# Setting width to sidebar
-st.markdown(
-    """
-    <style>
-        [data-testid=stSidebar] {
-            width: 400px;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 
 st.set_page_config(page_title="MultiLanguage Invoice Extractor")
@@ -64,7 +53,7 @@ uploaded_file = st.sidebar.file_uploader("Choose an image of the Invoice", type=
 image=""   
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
+    image = Image.open(uploaded_file, width=50%)
     st.sidebar.image(image, caption="Uploaded Image.", use_column_width=True)
 
 submit=st.sidebar.button("Tell me about the invoice")
